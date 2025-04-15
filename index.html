@@ -15,12 +15,15 @@ The game also uses music and a couple of sound effects.
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Fatass</title>
+        <title>Feed Broccoli</title>
         <link rel="icon" href="Images/logo-transparent.png">
         <meta charset="UTF-8">
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
         <style type="text/css">
-           
+           /* 样式已移至styles.css */
         </style>
         
         <script type="text/javascript">
@@ -75,29 +78,29 @@ The game also uses music and a couple of sound effects.
                 function getResponsiveSize() {
                     if (window.innerWidth <= 768) {
                         return {
-                            playerWidth: 120,  // 手机端人物宽度
-                            playerHeight: 88,  // 保持比例
-                            fruitSize: 50,    // 减小手机端掉落物品大小
+                            playerWidth: 100,  // 减小手机端人物宽度
+                            playerHeight: 74,  // 保持比例
+                            fruitSize: 40,    // 减小手机端掉落物品大小
                             fontSize: 16,      // 减小手机端文字大小
-                            gameOverFontSize: 32, // 游戏结束文字大小
+                            gameOverFontSize: 24, // 游戏结束文字大小
                             headerFontSize: 12,    // 更小的顶部文字
                         };
                     } else if (window.innerWidth <= 1024) {
                         return {
-                            playerWidth: 200,
-                            playerHeight: 147,
-                            fruitSize: 80,    // 减小平板端掉落物品大小
+                            playerWidth: 150,  // 减小平板端人物宽度
+                            playerHeight: 110, // 保持比例
+                            fruitSize: 60,    // 减小平板端掉落物品大小
                             fontSize: 24,
-                            gameOverFontSize: 40,
+                            gameOverFontSize: 32,
                             headerFontSize: 16,
                         };
                     } else {
                         return {
-                            playerWidth: 500,
-                            playerHeight: 368,
-                            fruitSize: 180,
+                            playerWidth: 250,  // 减小桌面端人物宽度
+                            playerHeight: 184, // 保持比例
+                            fruitSize: 100,   // 减小桌面端掉落物品大小
                             fontSize: 40,
-                            gameOverFontSize: 80,
+                            gameOverFontSize: 50,
                             headerFontSize: 40
                         };
                     }
@@ -327,23 +330,18 @@ The game also uses music and a couple of sound effects.
                         }
                         
                         // 修改字体大小和位置
-                        contextBack.font = `bold ${sizes.headerFontSize}px Arial`;
-                        // 调整文字位置，使用更小的间距
+                        contextBack.font = `normal ${sizes.headerFontSize * 0.8}px 'Atop', sans-serif`;
+                        // 使计分板居中显示
+                        contextBack.textAlign = "center";
                         if (window.innerWidth <= 768) {
-                            contextBack.fillText("SCORE: " + player.score, canvasBack.width * 0.05, 30);
-                            contextBack.fillText("HI: " + hiscore, canvasBack.width * 0.30, 30);
-                            contextBack.fillText("CAUGHT: " + player.fruitsCollected, canvasBack.width * 0.50, 30);
-                            contextBack.fillText("MISSED: " + player.fruitsMissed, canvasBack.width * 0.75, 30);
+                            contextBack.fillText("SCORE: " + player.score, canvasBack.width * 0.30, 30);
+                            contextBack.fillText("HI: " + hiscore, canvasBack.width * 0.70, 30);
                         } else if (window.innerWidth <= 1024) {
-                            contextBack.fillText("SCORE: " + player.score, canvasBack.width * 0.05, 40);
-                            contextBack.fillText("HI: " + hiscore, canvasBack.width * 0.30, 40);
-                            contextBack.fillText("CAUGHT: " + player.fruitsCollected, canvasBack.width * 0.50, 40);
-                            contextBack.fillText("MISSED: " + player.fruitsMissed, canvasBack.width * 0.75, 40);
+                            contextBack.fillText("SCORE: " + player.score, canvasBack.width * 0.30, 40);
+                            contextBack.fillText("HI: " + hiscore, canvasBack.width * 0.70, 40);
                         } else {
-                            contextBack.fillText("SCORE: " + player.score, canvasBack.width * 0.05, 60);
-                            contextBack.fillText("HI SCORE: " + hiscore, canvasBack.width * 0.25, 60);
-                            contextBack.fillText("HAMBURGERS CAUGHT: " + player.fruitsCollected, canvasBack.width * 0.48, 60);
-                            contextBack.fillText("HAMBURGERS MISSED: " + player.fruitsMissed, canvasBack.width * 0.78, 60);
+                            contextBack.fillText("SCORE: " + player.score, canvasBack.width * 0.35, 60);
+                            contextBack.fillText("HI SCORE: " + hiscore, canvasBack.width * 0.65, 60);
                         }
                     }
                     else
@@ -363,7 +361,7 @@ The game also uses music and a couple of sound effects.
                         contextBack.fillStyle = "WHITE";
                         
                         // 增大游戏结束时的字体
-                        contextBack.font = `bold ${sizes.gameOverFontSize}px Arial`;
+                        contextBack.font = `normal ${sizes.gameOverFontSize}px 'Atop', sans-serif`;
                         contextBack.textAlign = "center";
                         contextBack.textBaseline = "middle";
                         
@@ -383,81 +381,204 @@ The game also uses music and a couple of sound effects.
         </script>
     </head>
     <body>
-        <div class="header-image">
-            <img src="Images/header.png" alt="header image">
-        </div>
-
-        <div class="social-icons">
-            <div class="icon">
-                <a href="https://t.me/Fatass_Official" target="_blank"><img src="Images/icon-1.png" alt="social icon 1"></a>
+        <header class="site-header">
+            <div class="header-container">
+                <div class="logo">
+                    <img src="Images/logo-transparent.png" alt="Feed Broccoli Logo">
+                </div>
+                <div class="header-button">
+                    <a href="#" class="dextools-btn">
+                        <img src="images/dextools.svg" alt="Dextools">
+                        <span>Dextools</span>
+                    </a>
+                </div>
             </div>
-            <div class="icon">
-                <a href="https://x.com/Fatass_SOL_" target="_blank"><img src="Images/icon-2.png" alt="social icon 2"></a>
-            </div>
-            <div class="icon">
-                <img src="Images/icon-3.png" alt="social icon 3">
-            </div>
-            <div class="icon">
-                <img src="Images/icon-4.png" alt="social icon 4">
-            </div>
-        </div>
+        </header>
         
-        <div class="image-row">
-            <div class="square-image">
-                <img src="Images/image-1.png" alt="image 1">
+        <div class="hero-section">
+            <video class="hero-video" autoplay muted loop>
+                <source src="video/hero.mp4" type="video/mp4">
+                <!-- Fallback if video doesn't load -->
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <h2 class="hero-subtitle">Broccoli is a Belgian Malinois recently adopted by the founder of Binance. A tribute to CZ's beloved dog Broccoli.</h2>
+                <h1 class="hero-title">Feed Broccoli</h1>
             </div>
-            <div class="square-image">
-                <img src="Images/image-2.png" alt="image 2">
-            </div>
-            <div class="square-image">
-                <img src="Images/image-3.png" alt="image 3">
-            </div>
-        </div>
-        <div class="image-row">
-            <div class="square-image">
-                <img src="Images/image-4.png" alt="image 1">
-            </div>
-            <div class="square-image">
-                <img src="Images/image-5.png" alt="image 2">
-            </div>
-            <div class="square-image">
-                <img src="Images/image-6.png" alt="image 3">
-            </div>
-        </div>
-        <div class="image-row">
-            <div class="square-image">
-                <img src="Images/image-7.png" alt="image 1">
-            </div>
-            <div class="square-image">
-                <img src="Images/image-8.png" alt="image 2">
-            </div>
-            <div class="square-image">
-                <img src="Images/image-9.png" alt="image 3">
-            </div>
-        </div>
-        
-        <div class="social-icons">
-            <div class="icon">
-                <a href="https://t.me/Fatass_Official" target="_blank"><img src="Images/icon-1.png" alt="social icon 1"></a>
-            </div>
-            <div class="icon">
-                <a href="https://x.com/Fatass_SOL_" target="_blank"><img src="Images/icon-2.png" alt="social icon 2"></a>
-            </div>
-            <div class="icon">
-                <img src="Images/icon-3.png" alt="social icon 3">
-            </div>
-            <div class="icon">
-                <img src="Images/icon-4.png" alt="social icon 4">
+            <div class="hero-social">
+                <div class="hero-social-icon"><img src="Images/icon-1.png" alt="Social Icon"></div>
+                <div class="hero-social-icon"><img src="Images/icon-2.png" alt="Social Icon"></div>
+                <div class="hero-social-icon"><img src="Images/icon-3.png" alt="Social Icon"></div>
+                <div class="hero-social-icon"><img src="Images/icon-4.png" alt="Social Icon"></div>
             </div>
         </div>
 
-        <div class="game-container">
-            <div class="start-screen" id="startScreen">
-                <img src="Images/logo-transparent.png" alt="game logo">
-                <p>PRESS ENTER TO START</p>
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                </div>
+                <!-- 复制一份确保无缝循环 -->
+                <div class="marquee-content">
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                    <span>Feed Broccoli</span>
+                </div>
             </div>
-            <canvas id="backgroundCanvas" width="1024" height="650"></canvas>
-            <canvas id="canvas" width="1024" height="650"></canvas>
         </div>
+
+        <div class="community-section with-overlay">
+            <div class="community-container">
+                <h2 class="community-heading">It's a community project, bro.</h2>
+                
+                <!-- 第一行：左35% 右65% -->
+                <div class="community-row">
+                    <div class="image-left">
+                        <img src="Images/day-1.png" alt="Day 1">
+                    </div>
+                    <div class="text-right">
+                        <p>
+                            <span class="day-text">Day 1</span>
+                            <span class="fed-text">Fed it</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 第二行：左65% 右35% -->
+                <div class="community-row">
+                    <div class="text-left">
+                        <p>
+                            <span class="day-text">Day 2</span>
+                            <span class="fed-text">Fed it again</span>
+                        </p>
+                    </div>
+                    <div class="image-right">
+                        <img src="Images/day-2.png" alt="Day 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-section">
+            <div class="game-intro">
+                <span class="day-text">Day 4</span>
+                <span class="fed-text">We made a stupid little game about the dog</span>
+            </div>
+            <div class="game-container">
+                <div class="start-screen" id="startScreen">
+                    <img src="Images/logo-transparent.png" alt="game logo">
+                    <p class="start-text">PRESS ENTER TO START</p>
+                </div>
+                <canvas id="backgroundCanvas" width="1024" height="650"></canvas>
+                <canvas id="canvas" width="1024" height="650"></canvas>
+            </div>
+        </div>
+
+        <div class="community-section">
+            <div class="community-container">
+                <h2 class="community-heading">The journey continues...</h2>
+                
+                <!-- Day 7 内容 -->
+                <div class="community-row">
+                    <div class="image-left">
+                        <img src="Images/day-7.png" alt="Day 7">
+                    </div>
+                    <div class="text-right">
+                        <p>
+                            <span class="day-text">Day 7</span>
+                            <span class="fed-text">My entire wallet is $Broccoli</span>
+                            <span class="fed-text">...I started yelling "FEED BROCCOLI" without the irony</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-strip-section">
+            <div class="image-marquee-container">
+                <div class="image-marquee-track">
+                    <!-- 第一组内容 -->
+                    <div class="image-marquee-content">
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                    </div>
+                    <!-- 复制一份完全相同的内容实现无缝循环 -->
+                    <div class="image-marquee-content">
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-section">
+            <div class="message-container">
+                <h2 class="message-heading">I'm in too deep. <br>The broccoli is speaking to me...</h2>
+                <div class="message-row">
+                    <div class="message-text">
+                        <p>Now every time someone says "Binance," I bark.</p>
+                        <p>My friends won't talk to me anymore.</p>
+                        <p>But the broccoli is still here.</p>
+                        <p>It whispers: "Keep feeding."</p>
+                    </div>
+                    <div class="message-image">
+                        <img src="Images/message.png" alt="Broccoli Message">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tokenomics-section">
+            <div class="tokenomics-container">
+                <h2 class="tokenomics-heading">Tokenomics</h2>
+                <div class="tokenomics-row">
+                    <div class="tokenomics-item">
+                        <div class="tokenomics-title">Ticker</div>
+                        <div class="tokenomics-value">$Broccoli</div>
+                    </div>
+                    <div class="tokenomics-item">
+                        <div class="tokenomics-title">Total Supply</div>
+                        <div class="tokenomics-value">1,000,000,000</div>
+                    </div>
+                    <div class="tokenomics-item">
+                        <div class="tokenomics-title">Tax</div>
+                        <div class="tokenomics-value">0 / 0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer-section">
+            <div class="footer-divider"></div>
+            <div class="footer-container">
+                <p class="footer-copyright">© 2025 Feed Broccoli.</p>
+            </div>
+        </footer>
     </body>
 </html>
