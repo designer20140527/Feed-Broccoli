@@ -18,6 +18,7 @@ The game also uses music and a couple of sound effects.
         <title>Feed Broccoli</title>
         <link rel="icon" href="Images/logo-transparent.png">
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +80,7 @@ The game also uses music and a couple of sound effects.
                     if (window.innerWidth <= 768) {
                         return {
                             playerWidth: 100,  // 减小手机端人物宽度
-                            playerHeight: 74,  // 保持比例
+                            playerHeight: 107,  // 调整为600:640比例
                             fruitSize: 40,    // 减小手机端掉落物品大小
                             fontSize: 16,      // 减小手机端文字大小
                             gameOverFontSize: 24, // 游戏结束文字大小
@@ -88,7 +89,7 @@ The game also uses music and a couple of sound effects.
                     } else if (window.innerWidth <= 1024) {
                         return {
                             playerWidth: 150,  // 减小平板端人物宽度
-                            playerHeight: 110, // 保持比例
+                            playerHeight: 160, // 调整为600:640比例
                             fruitSize: 60,    // 减小平板端掉落物品大小
                             fontSize: 24,
                             gameOverFontSize: 32,
@@ -96,8 +97,8 @@ The game also uses music and a couple of sound effects.
                         };
                     } else {
                         return {
-                            playerWidth: 250,  // 减小桌面端人物宽度
-                            playerHeight: 184, // 保持比例
+                            playerWidth: 300,  // 人物宽度
+                            playerHeight: 320, // 调整为600:640比例
                             fruitSize: 100,   // 减小桌面端掉落物品大小
                             fontSize: 40,
                             gameOverFontSize: 50,
@@ -388,7 +389,7 @@ The game also uses music and a couple of sound effects.
                 </div>
                 <div class="header-button">
                     <a href="#" class="dextools-btn">
-                        <img src="images/dextools.svg" alt="Dextools">
+                        <img src="Images/dextools.svg" alt="Dextools">
                         <span>Dextools</span>
                     </a>
                 </div>
@@ -408,8 +409,8 @@ The game also uses music and a couple of sound effects.
                 <h1 class="hero-title">Feed Broccoli</h1>
             </div>
             <div class="hero-social">
-                <div class="hero-social-icon"><img src="Images/icon-1.png" alt="Social Icon"></div>
-                <div class="hero-social-icon"><img src="Images/icon-2.png" alt="Social Icon"></div>
+                <div class="hero-social-icon"><a href="https://t.me/Feed_Broccoli" target="_blank" rel="noopener noreferrer"><img src="Images/icon-1.png" alt="Telegram"></a></div>
+                <div class="hero-social-icon"><a href="https://x.com/Feed_Broccoli" target="_blank" rel="noopener noreferrer"><img src="Images/icon-2.png" alt="Twitter X"></a></div>
                 <div class="hero-social-icon"><img src="Images/icon-3.png" alt="Social Icon"></div>
                 <div class="hero-social-icon"><img src="Images/icon-4.png" alt="Social Icon"></div>
             </div>
@@ -518,20 +519,20 @@ The game also uses music and a couple of sound effects.
                     <!-- 第一组内容 -->
                     <div class="image-marquee-content">
                         <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-2.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-3.png" alt="Broccoli"></div>
                         <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
-                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
-                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
-                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
-                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-2.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-3.png" alt="Broccoli"></div>
                     </div>
                     <!-- 复制一份完全相同的内容实现无缝循环 -->
                     <div class="image-marquee-content">
                         <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-2.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-3.png" alt="Broccoli"></div>
                         <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
-                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
-                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
-                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
-                        <div class="marquee-image"><img src="Images/image-1.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-2.png" alt="Broccoli"></div>
+                        <div class="marquee-image"><img src="Images/image-3.png" alt="Broccoli"></div>
                     </div>
                 </div>
             </div>
